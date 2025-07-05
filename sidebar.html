@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base target="_top">
+  </head>
+  <body>
+    <label for="status_selection">Document Status: </label> 
+
+<select name="status" id="status">
+    <option value="In Progress">In Progress</option>
+    <option value="Under Review">Under Review</option>
+    <option value="Completed">Completed</option> 
+</select> 
+
+<button onClick="updateStatus()">Update!</button> 
+
+<script>
+    function updateStatus() { 
+        // get the selected status the user selected 
+        const selectedStatus = document.getElementById('status').value; 
+
+        // call the updateDocumentStatus function, and close the script host when done 
+        google.script.run.withSuccessHandler(() => google.script.host.close()).updateDocumentStatus(selectedStatus); 
+    }
+</script> 
+  </body>
+</html>
